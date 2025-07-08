@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  max-width: 180px;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+main {
+  padding: 1rem;
+}
+
+.loja {
+  background: white;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.loja img {
+  max-width: 120px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.loja h2 {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+}
+
+button {
+  background-color: #0071e3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
