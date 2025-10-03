@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Cobrança - Sistema Completo Final</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="dashboard-section" class="container">
+        <div class="header">
+            <h1>Dashboard de Cobrança</h1>
+            <p>Visão geral das cobranças e recebimentos</p>
+        </div>
+
+        <!-- Meta por Carteira -->
+        <div class="meta-section">
+            <h2>Meta por Carteira</h2>
+            <div class="meta-grid">
+                <div class="meta-card">
+                    <div class="meta-header">
+                        <span class="meta-title">Carteira A</span>
+                        <span class="meta-percentage">75%</span>
+                    </div>
+                    <div class="meta-values">
+                        <span>Recebido: R$ 150.000</span>
+                        <span>Meta: R$ 200.000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="meta-card">
+                    <div class="meta-header">
+                        <span class="meta-title">Carteira B</span>
+                        <span class="meta-percentage">60%</span>
+                    </div>
+                    <div class="meta-values">
+                        <span>Recebido: R$ 90.000</span>
+                        <span>Meta: R$ 150.000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                </div>
+
+                <div class="meta-card">
+                    <div class="meta-header">
+                        <span class="meta-title">Carteira C</span>
+                        <span class="meta-percentage">85%</span>
+                    </div>
+                    <div class="meta-values">
+                        <span>Recebido: R$ 170.000</span>
+                        <span>Meta: R$ 200.000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ranking de Cobrança -->
+        <div class="ranking-section">
+            <h2>Ranking de Cobrança por Loja</h2>
+            <div class="ranking-list">
+                <div class="ranking-item clickable" onclick="filterByStore('Loja Centro')">
+                    <div class="ranking-position">
+                        <div class="position-number first">1</div>
+                        <span class="store-name">Loja Centro</span>
+                    </div>
+                    <span class="store-value">R$ 125.000,00</span>
+                </div>
+
+                <div class="ranking-item clickable" onclick="filterByStore('Loja Norte')">
+                    <div class="ranking-position">
+                        <div class="position-number second">2</div>
+                        <span class="store-name">Loja Norte</span>
+                    </div>
+                    <span class="store-value">R$ 98.500,00</span>
+                </div>
+
+                <div class="ranking-item clickable" onclick="filterByStore('Loja Sul')">
+                    <div class="ranking-position">
+                        <div class="position-number third">3</div>
+                        <span class="store-name">Loja Sul</span>
+                    </div>
+                    <span class="store-value">R$ 87.200,00</span>
+                </div>
+
+                <div class="ranking-item clickable" onclick="filterByStore('Loja Oeste')">
+                    <div class="ranking-position">
+                        <div class="position-number">4</div>
+                        <span class="store-name">Loja Oeste</span>
+                    </div>
+                    <span class="store-value">R$ 76.800,00</span>
+                </div>
+
+                <div class="ranking-item clickable" onclick="filterByStore('Loja Leste')">
+                    <div class="ranking-position">
+                        <div class="position-number">5</div>
+                        <span class="store-name">Loja Leste</span>
+                    </div>
+                    <span class="store-value">R$ 65.300,00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas Gerais -->
+        <div class="stats-section">
+            <h2>Estatísticas Gerais</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1.234</div>
+                    <div class="stat-label">Total de Clientes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">567</div>
+                    <div class="stat-label">Clientes em Dia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">234</div>
+                    <div class="stat-label">Clientes em Atraso</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Renegociações Ativas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Métricas de Recebimento -->
+        <div class="metrics-grid">
+            <div class="metric-card clickable" onclick="filterByCard('a-receber-mes')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #3b82f6;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                    </svg>
+                    <span class="metric-title">A Receber no Mês</span>
+                </div>
+                <div class="metric-value">R$ 245.000,00</div>
+                <div class="metric-subtitle">Vencimentos até o final do mês</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('a-receber-dia')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #f59e0b;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <span class="metric-title">A Receber Hoje</span>
+                </div>
+                <div class="metric-value">R$ 12.500,00</div>
+                <div class="metric-subtitle">Vencimentos de hoje</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('recebido-dia')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #22c55e;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="metric-title">Recebido Hoje</span>
+                </div>
+                <div class="metric-value">R$ 8.750,00</div>
+                <div class="metric-subtitle">Pagamentos recebidos hoje</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('atrasado')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #ef4444;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="metric-title">Atrasado</span>
+                </div>
+                <div class="metric-value">R$ 95.000,00</div>
+                <div class="metric-subtitle">Total em atraso</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('recebido-atrasado-geral')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #8b5cf6;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="metric-title">Recebido Atrasado (Geral)</span>
+                </div>
+                <div class="metric-value">R$ 45.200,00</div>
+                <div class="metric-subtitle">Recuperação total</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('recebido-atrasado-mes')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #14b8a6;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="metric-title">Recebido Atrasado no Mês</span>
+                </div>
+                <div class="metric-value">R$ 15.800,00</div>
+                <div class="metric-subtitle">Recuperação mensal</div>
+            </div>
+
+            <div class="metric-card clickable" onclick="filterByCard('recebido-atrasado-dia')">
+                <div class="metric-header">
+                    <svg class="metric-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #06b6d4;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="metric-title">Recebido Atrasado no Dia</span>
+                </div>
+                <div class="metric-value">R$ 3.200,00</div>
+                <div class="metric-subtitle">Recuperação diária</div>
+            </div>
+        </div>
+
+        <div class="renegociacoes">
+            <h2>Renegociações</h2>
+            <div class="renegociacoes-grid">
+                <div class="renegociacao-card" onclick="filterByCard('renegociacoes-feitas')">
+                    <svg class="renegociacao-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #3b82f6;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div class="renegociacao-title">Renegociações Feitas</div>
+                    <div class="renegociacao-value">23</div>
+                </div>
+
+                <div class="renegociacao-card" onclick="filterByCard('renegociacoes-quebradas')">
+                    <svg class="renegociacao-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #ef4444;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    <div class="renegociacao-title">Renegociações Quebradas</div>
+                    <div class="renegociacao-value">5</div>
+                </div>
+
+                <div class="renegociacao-card" onclick="filterByCard('renegociacoes-para-receber')">
+                    <svg class="renegociacao-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #f59e0b;">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                    </svg>
+                    <div class="renegociacao-title">Para Receber Hoje</div>
+                    <div class="renegociacao-value">R$ 18.500,00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="btn btn-primary" onclick="showAgenda()">Agenda de Clientes</button>
+            <button class="btn btn-secondary" onclick="toggleCharts()">Mostrar Gráficos</button>
+        </div>
+
+        <!-- Charts Section -->
+        <div id="charts-section" class="charts-section">
+            <h2>Gráficos de Recebimentos</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <div class="chart-title">Recebimentos Mensais</div>
+                    <canvas id="monthlyChart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Status de Pagamentos</div>
+                    <canvas id="statusChart" width="400" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Recebimentos dos Últimos 7 Dias</div>
+                    <canvas id="weeklyChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agenda Section -->
+    <div id="agenda-section" class="agenda-section">
+        <div class="agenda-header">
+            <div>
+                <h1 class="agenda-title">Agenda de Clientes</h1>
+                <p class="agenda-subtitle">Gerencie seus clientes e cobranças</p>
+            </div>
+            <button class="btn btn-secondary" onclick="showDashboard()">← Voltar ao Dashboard</button>
+        </div>
+
+        <div id="filter-info" class="filter-info">
+            <span id="filter-info-text" class="filter-info-text"></span>
+            <button class="clear-filter" onclick="clearFilter()">Limpar filtro</button>
+        </div>
+
+        <div class="search-filter-container">
+            <input type="text" class="search-input" placeholder="Buscar por nome, CPF ou duplicata..." id="search-input">
+            <select class="filter-select" id="filter-select">
+                <option value="">Todos os clientes</option>
+                <option value="1-parcela">1 parcela em atraso</option>
+                <option value="2-parcelas">2 parcelas em atraso</option>
+                <option value="3-parcelas">3+ parcelas em atraso</option>
+                <option value="em-dia">Em dia</option>
+                <option value="atrasado-ano">Atrasado do ano</option>
+                <option value="atrasado-antigo">Atrasado +1 ano</option>
+            </select>
+            <select class="filter-select" id="probability-filter">
+                <option value="">Todas probabilidades</option>
+                <option value="boa">Boa probabilidade</option>
+                <option value="media">Média probabilidade</option>
+                <option value="baixa">Baixa probabilidade</option>
+            </select>
+        </div>
+
+        <div class="clients-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Dias Atraso</th>
+                        <th>Duplicata</th>
+                        <th>Probabilidade</th>
+                        <th>Valor Devendo</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="clients-tbody">
+                    <!-- Clientes serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes do Cliente -->
+    <div id="client-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Detalhes do Cliente</h2>
+                <button class="close-btn" onclick="closeModal('client-modal')">&times;</button>
+            </div>
+
+            <div class="client-info">
+                <div class="info-section">
+                    <h3>Informações Pessoais</h3>
+                    <div class="info-item">
+                        <span class="info-label">Nome:</span>
+                        <span class="info-value" id="client-name"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">CPF:</span>
+                        <span class="info-value" id="client-cpf"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value" id="client-email"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Celular:</span>
+                        <span class="info-value" id="client-phone"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Celular Referência:</span>
+                        <span class="info-value" id="client-ref-phone"></span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Resumo Financeiro</h3>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="summary-number" id="client-purchases">0</div>
+                            <div class="summary-label">Compras</div>
+                            <div class="summary-value" id="client-debt">R$ 0,00</div>
+                            <div class="summary-label">Devendo</div>
+                            <div class="summary-info">
+                                <div>Probabilidade: <span id="client-probability"></span></div>
+                                <div>Parcelas em Atraso: <span id="client-overdue-installments"></span></div>
+                                <div>Status: <span id="client-status"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section photos-section">
+                    <h3>Documentos</h3>
+                    <div class="photos-grid">
+                        <div class="photo-placeholder">
+                            <div>+<br>Foto Selfie</div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div>+<br>Doc. Frente</div>
+                        </div>
+                        <div class="photo-placeholder">
+                            <div>+<br>Doc. Verso</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-button btn-pix" onclick="selectPurchaseForAction('pix')">Gerar PIX</button>
+                <button class="action-button btn-boleto" onclick="selectPurchaseForAction('boleto')">Gerar Boleto</button>
+                <button class="action-button btn-renegociar" onclick="selectPurchaseForAction('renegociar')">Renegociar</button>
+                <button class="action-button btn-contestar" onclick="selectPurchaseForAction('contestar')">Contestar</button>
+                <button class="action-button btn-antecipar" onclick="selectPurchaseForAction('antecipar')">Antecipar</button>
+                <button class="action-button btn-dar-baixa" onclick="selectPurchaseForAction('dar-baixa')">Dar Baixa</button>
+                <button class="action-button btn-historico" onclick="showMovementHistory()">Histórico de Movimentações</button>
+            </div>
+
+            <div class="purchases-section">
+                <h3>Histórico de Compras</h3>
+                <table class="purchases-table">
+                    <thead>
+                        <tr>
+                            <th>Duplicata</th>
+                            <th>Valor Compra</th>
+                            <th>QTD Parcela</th>
+                            <th>Data Compra</th>
+                            <th>Empresa</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="purchases-tbody">
+                        <!-- Compras serão inseridas aqui via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Seleção de Compra -->
+    <div id="purchase-selection-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Selecionar Compra</h2>
+                <button class="close-btn" onclick="closeModal('purchase-selection-modal')">&times;</button>
+            </div>
+
+            <div class="purchase-selection">
+                <h4>Selecione a compra para realizar a ação:</h4>
+                <div class="purchase-list" id="purchase-list">
+                    <!-- Compras serão inseridas aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('purchase-selection-modal')">Cancelar</button>
+                <button class="btn btn-confirm" onclick="proceedWithSelectedPurchase()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Seleção de Parcelas -->
+    <div id="parcela-selection-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Selecionar Parcelas</h2>
+                <button class="close-btn" onclick="closeModal('parcela-selection-modal')">&times;</button>
+            </div>
+
+            <div class="parcela-selection">
+                <h4 id="parcela-selection-title">Selecione as parcelas:</h4>
+                <div class="parcela-list" id="parcela-list">
+                    <!-- Parcelas serão inseridas aqui via JavaScript -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('parcela-selection-modal')">Cancelar</button>
+                <button class="btn btn-confirm" onclick="proceedWithSelectedParcelas()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Renegociação -->
+    <div id="renegociation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Renegociar Dívida</h2>
+                <button class="close-btn" onclick="closeModal('renegociation-modal')">&times;</button>
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>ATENÇÃO:</strong> Esta duplicata possui outras parcelas vencidas há mais de 90 dias, que foram automaticamente adicionadas a esta renegociação.
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Probabilidade de Pagamento</label>
+                <div style="color: #ef4444; font-weight: 600;">NÃO</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Valor Original</label>
+                <div style="font-weight: 600;">R$ 15.000,00</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Valor com Juros (15%)</label>
+                <div style="font-weight: 600; color: #ef4444;">R$ 17.250,00</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Valor da Entrada</label>
+                <input type="number" class="form-input" id="entrada-value" placeholder="0,00" oninput="calculateRenegotiation()">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Data da Entrada</label>
+                <input type="date" class="form-input" id="entrada-date">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Número de Parcelas</label>
+                <select class="form-input" id="parcelas-count" onchange="calculateRenegotiation()">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                    <option value="5">5x</option>
+                    <option value="6">6x</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Observações</label>
+                <textarea class="form-textarea" placeholder="Observações sobre a renegociação..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <h4>Resumo da Renegociação</h4>
+                <div>Entrada: R$ <span id="resumo-entrada">0,00</span></div>
+                <div>Parcelas: <span id="resumo-parcelas">1x de R$ 17.250,00</span></div>
+                <div>Total: R$ <span id="resumo-total">17.250,00</span></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('renegociation-modal')">Cancelar</button>
+                <button class="btn btn-confirm" onclick="confirmRenegotiation()">Confirmar Renegociação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
